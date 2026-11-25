@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /api/
+Disallow: /leads.php
+
+Sitemap: https://profile.wheretospot.com/sitemap.xml

@@ -1,0 +1,12 @@
+# cPanel deploy for profile.wheretospot.com (this file lives on the `deploy` branch, built by GitHub Actions).
+# CHECK FIRST: cPanel > Domains > document root of profile.wheretospot.com. Change DEPLOYPATH if it differs.
+# Leads live in /home/viorowzb/profile-data (outside the website) and are never touched.
+# config.local.php on the server is never overwritten (it isn't in the build).
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/viorowzb/profile.wheretospot.com/
+    - /bin/mkdir -p $DEPLOYPATH /home/viorowzb/profile-data
+    - /bin/chmod 700 /home/viorowzb/profile-data
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH/.htaccess
+    - /bin/cp api/lib/.htaccess $DEPLOYPATH/api/lib/.htaccess
