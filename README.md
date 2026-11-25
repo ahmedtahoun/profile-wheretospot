@@ -11,6 +11,7 @@ Where To Spot's company profile: a bilingual (English / Arabic) creative-studio 
 - `api/lead.php`: the contact form.
 - `leads.php`: password-protected leads inbox with CSV download. Every new lead is also emailed to `lead_email`.
 - Leads live in `profile-data/leads.jsonl`, next to (not inside) the website folder.
+- On screens up to 820 px the header links fold into a ☰ menu.
 - "＋ Add project" and the footer "Leads" link only appear with `?edit=1` in the address. Projects added there are saved in that browser only.
 
 ## Settings (server only)
@@ -28,5 +29,5 @@ See `.cpanel.yml`. Confirm the document root first (cPanel > Domains), then in G
 ## Known issues
 
 - About 10 harmless 404 requests per page load: the browser fetches `src="{{ … }}"` placeholders before the template renders. Fixing it needs a change to how the template runtime works.
-- `images/ph/svc-nfc.png` doesn't exist on the live site either, so the NFC service has no image.
-- The footer's Instagram / LinkedIn / TikTok links go nowhere (`#`).
+- The footer links to @wheretospot on Instagram, TikTok and LinkedIn (`linkedin.com/company/wheretospot`, unconfirmed: LinkedIn blocks automated checks).
+- The `images/ph/svc-*` tiles are numbered placeholders that the service cards don't display.
