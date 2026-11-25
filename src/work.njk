@@ -1,0 +1,42 @@
+---
+pagination:
+  data: pages.langs
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/work/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set path = "/work/" -%}
+{%- set navSection = "work" -%}
+{%- set pageTitle = "work_index_title" | t(lang) -%}
+{%- set pageDesc = "work_index_sub" | t(lang) -%}
+{%- set current = "all" -%}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <p class="kicker">{{ "work_kicker" | t(lang) }}</p>
+    <h1 class="h1">{{ "work_index_title" | t(lang) }}</h1>
+    <p class="lead readable">{{ "work_index_sub" | t(lang) }}</p>
+  </div>
+</section>
+<div class="container">{% include "partials/cat-nav.njk" %}</div>
+{%- for c in categories %}
+{%- set list = projects | byCategory(c.slug) %}
+<section class="section section-tight" aria-labelledby="h-{{ c.slug }}">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <h2 class="h3" id="h-{{ c.slug }}"><a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ c | f("name", lang) }}</a></h2>
+        <p class="muted">{{ c | f("blurb", lang) }} · {{ "projects_count" | t(lang, {n: list.length}) }}</p>
+      </div>
+      <a class="link-arrow" href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ "see_category_work" | t(lang, {cat: c | f("name", lang)}) }}</a>
+    </div>
+    <div class="pgrid">
+      {%- asyncEach p in list %}{% include "partials/project-card.njk" %}{% endeach %}
+    </div>
+  </div>
+</section>
+{%- endfor %}
+{% include "partials/cta.njk" %}
+{% endblock %}

@@ -1,33 +1,50 @@
 # profile.wheretospot.com
 
-Where To Spot's company profile: a bilingual (English / Arabic) creative-studio site covering printing, acrylic, branding, NFC smart cards, events, video, social media, web, AI and SEO, with a filterable portfolio ("Selected work") and client logos.
+Bilingual (English / Arabic) portfolio site for Where To Spot. Built with [Eleventy](https://www.11ty.dev/): every page is plain HTML made at build time, so all content reads with JavaScript off. JavaScript only adds the dropdown, video player, photo lightbox and chat.
 
-## How it's built
+## Where things are
 
-- `index.html`: the whole page. Inside `<x-dc>` is a template (HTML with `{{ }}` placeholders) plus one script that holds all the content (services, projects, clients, EN/AR text) and the page logic.
-- `support.js`: the small runtime that renders the `<x-dc>` template (React 18 from unpkg). `image-slot.js`: image placeholders.
-- `images/`: `work/` (portfolio), `clients/` (logos), `ph/` (service and section images). WebP, max 1800 px (logos 600 px). Some names are built in code: `images/ph/svc-<service>.webp`, `images/clients/color-01…23.webp`, `images/clients/mono-13…23.webp`.
-- `api/chat.php`: the chat assistant. Sends the conversation to Claude (official Anthropic PHP SDK in `api/lib/vendor`, same as the shop) and gets back a short reply plus any contact details. With no API key it answers with a scripted reply that still collects the lead.
-- `api/lead.php`: the contact form.
-- `leads.php`: password-protected leads inbox with CSV download. Every new lead is also emailed to `lead_email`.
-- Leads live in `profile-data/leads.jsonl`, next to (not inside) the website folder.
-- On screens up to 820 px the header links fold into a ☰ menu.
-- "＋ Add project" and the footer "Leads" link only appear with `?edit=1` in the address. Projects added there are saved in that browser only.
+| Path | What it is |
+|---|---|
+| `src/_data/projects.json` | All 104 projects (titles, client, photos, video, featured) |
+| `src/_data/categories.json` | The 12 work categories |
+| `src/_data/services.json` | Service summaries and "what's included" lists |
+| `src/_data/testimonials.json`, `clients.json`, `stats.json` | Home-page sections |
+| `src/_data/site.json` | Site URL, email, phone, WhatsApp, socials |
+| `src/_data/i18n.json` | Every interface string, `{en, ar}` |
+| `src/*.njk`, `src/_includes/` | Page templates and shared parts |
+| `src/assets/` | `site.css`, `site.js`, `contact.js` |
+| `src/images/` | Original photos (resized to WebP at build time) |
+| `php/` | Server code copied into the build: `api/chat.php`, `api/lead.php`, `leads.php`, `.htaccess` |
+| `docs/URLS.md` | Every generated URL |
+| `docs/CLEANUP.md` | Content still to fix or confirm |
 
-## Settings (server only)
+Bilingual fields use `_en` / `_ar` suffixes. A missing `_ar` falls back to English.
 
-Copy `config.local.example.php` to `config.local.php` on the server and fill in `anthropic_api_key` (optional), `lead_email` and `admin_password_hash`. Never commit `config.local.php`.
+## Add or change a project
 
-## Run locally
+Edit `src/_data/projects.json`. The page appears at `/work/{category}/{slug}/` and `/ar/work/{category}/{slug}/`. Put photos in `src/images/` and list them under `images` with `alt_en` / `alt_ar`. Set `"featured": true` to show it on the home page.
 
-The browser-pane server `profile-local` in `~/Documents/GitHub/.claude/launch.json` serves this folder with `php -S` and keeps test leads in a scratch folder. Leads inbox password locally: `profile-local`.
+## Build locally
+
+Needs Node 20+.
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+`npm run build` writes the site to `_site/`. To test the PHP form and chat locally, serve `_site/` with `php -S 127.0.0.1:8072 -t _site`.
 
 ## Deploy
 
-See `.cpanel.yml`. Confirm the document root first (cPanel > Domains), then in Git Version Control: Update from Remote, then Deploy HEAD Commit.
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and force-pushes the result to the `deploy` branch. cPanel (Git Version Control) pulls the `deploy` branch and runs its `.cpanel.yml`, which copies the files into `/home/viorowzb/profile.wheretospot.com/`.
 
-## Known issues
+One-time cPanel setup: set the repository's checked-out branch to `deploy`, then Update from Remote → Deploy HEAD Commit.
 
-- About 10 harmless 404 requests per page load: the browser fetches `src="{{ … }}"` placeholders before the template renders. Fixing it needs a change to how the template runtime works.
-- The footer links to @wheretospot on Instagram, TikTok and LinkedIn (`linkedin.com/company/wheretospot`, unconfirmed: LinkedIn blocks automated checks).
-- The `images/ph/svc-*` tiles are numbered placeholders that the service cards don't display.
+## Server-only config
+
+Secrets never go in git. On the server, create `profile.wheretospot.com/config.local.php` (site root) from `php/config.local.example.php` with the admin password hash (for `leads.php`) and, optionally, the Anthropic API key for the chat. Without a key the chat gives a scripted reply. Leads are saved outside the web root in `/home/viorowzb/profile-data/leads.jsonl`, never in public files.

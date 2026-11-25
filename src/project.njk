@@ -1,0 +1,90 @@
+---
+pagination:
+  data: pages.projects
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/work/{{ item.p.category }}/{{ item.p.slug }}/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set p = item.p -%}
+{%- set c = item.cat -%}
+{%- set cname = c | f("name", lang) -%}
+{%- set ptitle = p | f("title", lang) -%}
+{%- set client = (p.client_ar if (lang == 'ar' and p.client_ar) else p.client) -%}
+{%- set path = "/work/" + c.slug + "/" + p.slug + "/" -%}
+{%- set navSection = "work" -%}
+{%- set pageTitle = (client + " — " + ptitle) if client else ptitle -%}
+{%- set pageDesc = (p | f("summary", lang)) + " " + cname + (" · " + client if client else "") + "." -%}
+{%- set ogImage = p.images[0].src -%}
+{%- set crumbs = [{label: ("nav_work" | t(lang)), href: ("/work/" | lp(lang))}, {label: cname, href: (("/work/" + c.slug + "/") | lp(lang))}, {label: ptitle}] -%}
+{% block jsonld %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ ("nav_work" | t(lang)) | dump | safe }},"item":{{ (("/work/" | lp(lang)) | abs) | dump | safe }}},{"@type":"ListItem","position":2,"name":{{ cname | dump | safe }},"item":{{ ((("/work/" + c.slug + "/") | lp(lang)) | abs) | dump | safe }}},{"@type":"ListItem","position":3,"name":{{ ptitle | dump | safe }}}]}</script>
+{% endblock %}
+{% block content %}
+<article>
+  <header class="page-head">
+    <div class="container">
+      {% include "partials/crumbs.njk" %}
+      <h1 class="h1">{{ ptitle }}</h1>
+      <dl class="meta">
+        {%- if client %}<div><dt>{{ "client" | t(lang) }}</dt><dd>{{ client }}</dd></div>{% endif %}
+        <div><dt>{{ "category" | t(lang) }}</dt><dd><a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ cname }}</a></dd></div>
+        {%- if p.year %}<div><dt>{{ "Year" if lang == "en" else "السنة" }}</dt><dd>{{ p.year }}</dd></div>{% endif %}
+      </dl>
+      <p class="lead readable">{{ p | f("summary", lang) }}</p>
+    </div>
+  </header>
+
+  {%- if p.video_url %}
+  <section class="section section-tight">
+    <div class="container">
+      <div class="video-frame" data-yt="{{ p.youtube_id }}" data-title="{{ ptitle }}">
+        <a class="video-facade" href="https://www.youtube.com/watch?v={{ p.youtube_id }}" target="_blank" rel="noopener">
+          <img src="https://i.ytimg.com/vi/{{ p.youtube_id }}/hqdefault.jpg" alt="{{ p.images[0] | f('alt', lang) }}" width="480" height="360" loading="eager">
+          <span class="play" aria-hidden="true">▶</span>
+          <span class="sr-only">{{ "watch" | t(lang) }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  {%- else %}
+  <section class="section section-tight" aria-label="{{ 'photos' | t(lang, {n: p.images.length}) }}">
+    <div class="container">
+      <ul class="gallery{% if p.images.length == 1 %} gallery-single{% endif %}" data-gallery>
+        {%- for im in p.images %}
+        <li>
+          <a href="/{{ im.src }}" class="gallery-link" data-index="{{ loop.index0 }}" aria-label="{{ 'gallery_open' | t(lang, {n: loop.index, total: p.images.length}) }}">
+            {% img im.src, (im | f("alt", lang)), "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 600px", "gallery-img", loop.first %}
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if p | f("description", lang) %}
+  <section class="section section-tight">
+    <div class="container prose readable"><p>{{ p | f("description", lang) }}</p></div>
+  </section>
+  {%- endif %}
+</article>
+
+{%- if item.related.length %}
+<section class="section" aria-labelledby="h-related">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="h3" id="h-related">{{ "related" | t(lang, {cat: cname}) }}</h2>
+      <a class="link-arrow" href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ "see_category_work" | t(lang, {cat: cname}) }}</a>
+    </div>
+    <div class="pgrid">
+      {%- asyncEach p in item.related %}{% include "partials/project-card.njk" %}{% endeach %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+{%- set ctaHref = ('/contact/' | lp(lang)) + "?service=" + c.slug -%}
+{%- set ctaLabel = "cta_service_btn" | t(lang, {cat: cname}) -%}
+{% include "partials/cta.njk" %}
+{% endblock %}

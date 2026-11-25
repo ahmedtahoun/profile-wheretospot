@@ -1,0 +1,25 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{%- extends "base.njk" -%}
+{%- set lang = "en" -%}
+{%- set path = "/" -%}
+{%- set noindex = true -%}
+{%- set pageTitle = "Page not found" -%}
+{%- set pageDesc = "notfound_sub" | t(lang) -%}
+{% block content %}
+<section class="page-head notfound">
+  <div class="container">
+    <p class="kicker">404</p>
+    <h1 class="h1">{{ "notfound_title" | t("en") }}</h1>
+    <p class="lead readable">{{ "notfound_sub" | t("en") }}</p>
+    <p class="head-links"><a class="btn btn-primary" href="/work/">{{ "see_all_work" | t("en") }}</a><a class="btn btn-ghost" href="/contact/">{{ "nav_contact" | t("en") }}</a></p>
+    <div lang="ar" dir="rtl" class="notfound-ar">
+      <h2 class="h3">{{ "notfound_title" | t("ar") }}</h2>
+      <p class="readable">{{ "notfound_sub" | t("ar") }}</p>
+      <p class="head-links"><a class="btn btn-primary" href="/ar/work/">{{ "see_all_work" | t("ar") }}</a><a class="btn btn-ghost" href="/ar/contact/">{{ "nav_contact" | t("ar") }}</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

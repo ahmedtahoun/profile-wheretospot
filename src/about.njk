@@ -1,0 +1,58 @@
+---
+pagination:
+  data: pages.langs
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/about/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set path = "/about/" -%}
+{%- set navSection = "about" -%}
+{%- set pageTitle = "about_page_title" | t(lang) -%}
+{%- set pageDesc = ("about_p1" | t(lang)) + " " + ("about_p2" | t(lang)) -%}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <p class="kicker">{{ "about_kicker" | t(lang) }}</p>
+    <h1 class="h1">{{ "about_title" | t(lang) }}</h1>
+    <div class="prose readable">
+      <p class="lead">{{ "about_p1" | t(lang) }}</p>
+      <p>{{ "about_p2" | t(lang) }}</p>
+    </div>
+  </div>
+</section>
+<section class="section section-tight" aria-labelledby="h-stats">
+  <div class="container">
+    <h2 class="sr-only" id="h-stats">{{ "stats_title" | t(lang) }}</h2>
+    <ul class="stats">
+      {%- for s in stats %}
+      <li class="stat"><span class="stat-num" data-count="{{ s.value }}">{{ s.value }}{{ s.suffix }}</span><span class="stat-label">{{ s | f("label", lang) }}</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+<section class="section" aria-labelledby="h-wall">
+  <div class="container">
+    <h2 class="h2" id="h-wall">{{ "clients_title" | t(lang) }}</h2>
+    <ul class="logo-wall">
+      {%- for c in clients.wall %}<li><img src="/{{ c.logo }}" alt="{{ c.name or '' }}" width="160" height="80" loading="lazy"></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+<section class="section" aria-labelledby="h-testi">
+  <div class="container">
+    <h2 class="h2" id="h-testi">{{ "testi_title" | t(lang) }}</h2>
+    <ul class="testi-grid">
+      {%- for tm in testimonials %}
+      <li class="testi">
+        <p class="stars" aria-hidden="true">★★★★★</p>
+        <blockquote><p>“{{ tm | f("quote", lang) }}”</p></blockquote>
+        <p class="testi-who"><span class="avatar" aria-hidden="true">{{ tm.initial }}</span><span><b>{{ tm.name_ar if lang == 'ar' else tm.name }}</b><span class="muted">{{ tm | f("role", lang) }}</span></span></p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{% include "partials/cta.njk" %}
+{% endblock %}

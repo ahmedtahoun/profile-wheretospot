@@ -1,0 +1,37 @@
+# Build the site on every push to main and publish the result to the `deploy` branch.
+# cPanel Git Version Control tracks `deploy`; its .cpanel.yml copies the files into the website folder.
+name: Build and publish
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx @11ty/eleventy
+      - name: Check the build
+        run: |
+          test -f _site/index.html && test -f _site/ar/index.html && test -f _site/sitemap.xml
+          echo "Pages: $(find _site -name '*.html' | wc -l)"
+      - name: Publish to the deploy branch
+        run: |
+          cp deploy/.cpanel.yml _site/.cpanel.yml
+          cd _site
+          git init -q -b deploy
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build of ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy

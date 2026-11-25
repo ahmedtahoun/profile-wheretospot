@@ -1,0 +1,60 @@
+{#- Shared page shell. Child templates set: lang, path (without /ar), pageTitle, pageDesc, ogImage (optional), jsonld (optional). -#}
+{%- set isAr = lang == "ar" -%}
+{%- set otherLang = "en" if isAr else "ar" -%}
+{%- set fullTitle = (pageTitle + " · " + site.name) if pageTitle else (site.name + " · " + ("استوديو إبداعي: طباعة، فعاليات، فيديو، ويب وذكاء اصطناعي" if isAr else "Creative studio: printing, events, video, web & AI")) -%}
+{%- set canonical = (path | lp(lang)) | abs -%}
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ 'rtl' if isAr else 'ltr' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ fullTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+{%- if noindex %}<meta name="robots" content="noindex">{% else %}
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" hreflang="en" href="{{ path | abs }}">
+<link rel="alternate" hreflang="ar" href="{{ (path | lp('ar')) | abs }}">
+<link rel="alternate" hreflang="x-default" href="{{ path | abs }}">
+{%- endif %}
+<meta name="theme-color" content="#070B16">
+<link rel="icon" href="/images/logo.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ 'ar_EG' if isAr else 'en_US' }}">
+<meta property="og:title" content="{{ fullTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{% ogimg ogImage, site.og_default %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ fullTitle }}">
+<meta name="twitter:description" content="{{ pageDesc }}">
+<meta name="twitter:image" content="{% ogimg ogImage, site.og_default %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+{%- block jsonld %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip" href="#main">{{ "skip" | t(lang) }}</a>
+{% include "partials/header.njk" %}
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+{% include "partials/footer.njk" %}
+<div id="float" class="float" data-lang="{{ lang }}">
+  <a class="float-wa" href="https://wa.me/{{ site.whatsapp }}?text={{ ('whatsapp_text' | t(lang)) | urlencode }}" target="_blank" rel="noopener" aria-label="{{ 'whatsapp_cta' | t(lang) }}">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+  </a>
+</div>
+<script id="i18n" type="application/json">{{ {
+  lang: lang,
+  chat_title: ("chat_title" | t(lang)), chat_open: ("chat_open" | t(lang)), chat_close: ("chat_close" | t(lang)),
+  chat_greet: ("chat_greet" | t(lang)), chat_ph: ("chat_ph" | t(lang)), chat_send: ("chat_send" | t(lang)), chat_err: ("chat_err" | t(lang)),
+  gallery_prev: ("gallery_prev" | t(lang)), gallery_next: ("gallery_next" | t(lang)), close: ("close" | t(lang)),
+  f_sending: ("f_sending" | t(lang)), f_send: ("f_send" | t(lang)), f_need_contact: ("f_need_contact" | t(lang)), f_bad_email: ("f_bad_email" | t(lang)), f_failed: ("f_failed" | t(lang))
+} | dump | safe }}</script>
+<script src="/assets/js/site.js" defer></script>
+{%- if pageScript %}<script src="/assets/js/{{ pageScript }}" defer></script>{% endif %}
+</body>
+</html>

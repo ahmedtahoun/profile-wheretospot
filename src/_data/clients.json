@@ -1,0 +1,126 @@
+{
+  "wall": [
+    {
+      "logo": "images/clients/color-01.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-02.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-03.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-04.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-05.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-06.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-07.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-08.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-09.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-10.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-11.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-12.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-13.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-14.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-15.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-16.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-17.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-18.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-19.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-20.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-21.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-22.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/color-23.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/coffee-lab-logo.webp",
+      "name": null
+    }
+  ],
+  "strip": [
+    {
+      "logo": "images/clients/mono-13.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/mono-15.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/mono-17.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/mono-19.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/mono-21.webp",
+      "name": null
+    },
+    {
+      "logo": "images/clients/mono-23.webp",
+      "name": null
+    }
+  ]
+}

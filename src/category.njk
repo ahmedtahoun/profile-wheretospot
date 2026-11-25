@@ -1,0 +1,44 @@
+---
+pagination:
+  data: pages.categories
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/work/{{ item.cat.slug }}/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set c = item.cat -%}
+{%- set cname = c | f("name", lang) -%}
+{%- set path = "/work/" + c.slug + "/" -%}
+{%- set navSection = "work" -%}
+{%- set pageTitle = cname + (" — أعمالنا" if lang == "ar" else " — Our work") -%}
+{%- set pageDesc = (c | f("blurb", lang)) + " " + ("projects_count" | t(lang, {n: item.projects.length})) + "." -%}
+{%- set ogImage = item.projects[0].images[0].src -%}
+{%- set current = c.slug -%}
+{%- set crumbs = [{label: ("nav_work" | t(lang)), href: ("/work/" | lp(lang))}, {label: cname}] -%}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    {% include "partials/crumbs.njk" %}
+    <h1 class="h1">{{ cname }}</h1>
+    <p class="lead readable">{{ c | f("blurb", lang) }}</p>
+    {%- if c | f("description", lang) %}<p class="readable">{{ c | f("description", lang) }}</p>{% endif %}
+    <p class="head-links">
+      <a class="link-arrow" href="{{ ('/services/' + c.slug + '/') | lp(lang) }}">{{ "nav_services" | t(lang) }}: {{ cname }}</a>
+      <a class="btn btn-primary btn-sm" href="{{ '/contact/' | lp(lang) }}?service={{ c.slug }}">{{ "cta_service_btn" | t(lang, {cat: cname}) }}</a>
+    </p>
+  </div>
+</section>
+<div class="container">{% include "partials/cat-nav.njk" %}</div>
+<section class="section section-tight" aria-label="{{ cname }}">
+  <div class="container">
+    <p class="muted count-line">{{ "projects_count" | t(lang, {n: item.projects.length}) }}</p>
+    <div class="pgrid">
+      {%- asyncEach p in item.projects %}{% include "partials/project-card.njk" %}{% endeach %}
+    </div>
+  </div>
+</section>
+{%- set ctaHref = ('/contact/' | lp(lang)) + "?service=" + c.slug -%}
+{%- set ctaLabel = "cta_service_btn" | t(lang, {cat: cname}) -%}
+{% include "partials/cta.njk" %}
+{% endblock %}

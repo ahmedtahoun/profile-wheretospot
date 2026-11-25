@@ -1,0 +1,408 @@
+{
+  "lang_name": {
+    "en": "English",
+    "ar": "العربية"
+  },
+  "switch_to": {
+    "en": "عربى",
+    "ar": "EN"
+  },
+  "switch_label": {
+    "en": "اقرأ هذه الصفحة بالعربية",
+    "ar": "Read this page in English"
+  },
+  "skip": {
+    "en": "Skip to content",
+    "ar": "تخطَّ إلى المحتوى"
+  },
+  "nav_work": {
+    "en": "Work",
+    "ar": "أعمالنا"
+  },
+  "nav_services": {
+    "en": "Services",
+    "ar": "خدماتنا"
+  },
+  "nav_about": {
+    "en": "About",
+    "ar": "من نحن"
+  },
+  "nav_contact": {
+    "en": "Contact",
+    "ar": "تواصل"
+  },
+  "nav_quote": {
+    "en": "Get a Quote",
+    "ar": "اطلب عرض سعر"
+  },
+  "nav_home": {
+    "en": "Home",
+    "ar": "الرئيسية"
+  },
+  "menu": {
+    "en": "Menu",
+    "ar": "القائمة"
+  },
+  "close": {
+    "en": "Close",
+    "ar": "إغلاق"
+  },
+  "all_work": {
+    "en": "All work",
+    "ar": "كل الأعمال"
+  },
+  "hero_eyebrow": {
+    "en": "CREATIVE STUDIO · GCC & BEYOND",
+    "ar": "استوديو إبداعي · الخليج والعالم"
+  },
+  "hero_line1": {
+    "en": "We make brands",
+    "ar": "نصنع علاماتٍ"
+  },
+  "hero_rot": {
+    "en": [
+      "unforgettable",
+      "unmissable",
+      "iconic",
+      "impossible to ignore"
+    ],
+    "ar": [
+      "لا تُنسى",
+      "لا تُقاوم",
+      "أيقونية",
+      "تلفت الأنظار"
+    ]
+  },
+  "hero_sub": {
+    "en": "One studio for everything that makes you visible — printing, acrylic, events, video, social, web, and AI. Trusted by brands across the GCC and beyond.",
+    "ar": "استوديو واحد لكل ما يجعلك مرئياً — طباعة، أكريليك، فعاليات، فيديو، سوشيال، ويب، وذكاء اصطناعي. موثوق من علامات في الخليج والعالم."
+  },
+  "hero_cta1": {
+    "en": "See our work",
+    "ar": "شاهد أعمالنا"
+  },
+  "hero_cta2": {
+    "en": "Start a project",
+    "ar": "ابدأ مشروعك"
+  },
+  "trusted_by": {
+    "en": "Trusted by",
+    "ar": "موثوق من"
+  },
+  "services_kicker": {
+    "en": "What we do",
+    "ar": "ماذا نقدم"
+  },
+  "services_title": {
+    "en": "Ten ways we make you stand out.",
+    "ar": "عشر طرق نجعلك بها متميزاً."
+  },
+  "services_sub": {
+    "en": "From a single banner to a full AI-powered campaign — one team, end to end.",
+    "ar": "من لافتة واحدة إلى حملة كاملة بالذكاء الاصطناعي — فريق واحد من البداية للنهاية."
+  },
+  "work_kicker": {
+    "en": "Selected work",
+    "ar": "أعمال مختارة"
+  },
+  "work_title": {
+    "en": "Projects we’re proud of.",
+    "ar": "مشاريع نفخر بها."
+  },
+  "featured_title": {
+    "en": "Featured work",
+    "ar": "أعمال مختارة"
+  },
+  "reel_kicker": {
+    "en": "Showreel",
+    "ar": "ريل الأعمال"
+  },
+  "reel_title": {
+    "en": "Motion that stops the scroll.",
+    "ar": "حركة توقف التمرير."
+  },
+  "clients_title": {
+    "en": "Trusted by brands across the region",
+    "ar": "موثوق من علامات في جميع أنحاء المنطقة"
+  },
+  "testi_title": {
+    "en": "Clients don’t just hire us. They stay.",
+    "ar": "عملاؤنا لا يوظفوننا فقط. بل يبقون معنا."
+  },
+  "about_kicker": {
+    "en": "Who we are",
+    "ar": "من نحن"
+  },
+  "about_title": {
+    "en": "A full-service creative studio.",
+    "ar": "استوديو إبداعي متكامل."
+  },
+  "about_p1": {
+    "en": "Where To Spot brings print, fabrication, film, digital and AI under one roof — so your brand moves as one, everywhere it appears.",
+    "ar": "وير تو سبوت تجمع الطباعة والتصنيع والفيديو والرقمي والذكاء الاصطناعي تحت سقف واحد — لتتحرك علامتك كوحدة واحدة أينما ظهرت."
+  },
+  "about_p2": {
+    "en": "Based in the GCC, working worldwide. We obsess over the details most agencies skip.",
+    "ar": "مقرنا الخليج ونعمل حول العالم. نهتم بالتفاصيل التي تتجاهلها معظم الوكالات."
+  },
+  "contact_kicker": {
+    "en": "Let’s talk",
+    "ar": "لنتحدث"
+  },
+  "contact_title": {
+    "en": "Have a project in mind?",
+    "ar": "لديك مشروع في ذهنك؟"
+  },
+  "contact_sub": {
+    "en": "Tell us what you need and we’ll get back within one business day with ideas and a quote.",
+    "ar": "أخبرنا بما تحتاجه وسنعود إليك خلال يوم عمل واحد بالأفكار وعرض السعر."
+  },
+  "contact_region": {
+    "en": "GCC · Middle East · Worldwide",
+    "ar": "الخليج · الشرق الأوسط · العالم"
+  },
+  "f_name": {
+    "en": "Name",
+    "ar": "الاسم"
+  },
+  "f_name_ph": {
+    "en": "Your name",
+    "ar": "اسمك"
+  },
+  "f_email": {
+    "en": "Email",
+    "ar": "البريد الإلكتروني"
+  },
+  "f_email_ph": {
+    "en": "you@company.com",
+    "ar": "you@company.com"
+  },
+  "f_phone": {
+    "en": "Phone / WhatsApp",
+    "ar": "الهاتف / واتساب"
+  },
+  "f_phone_ph": {
+    "en": "e.g. +971 …",
+    "ar": "مثال: 971+ …"
+  },
+  "f_service": {
+    "en": "Service",
+    "ar": "الخدمة"
+  },
+  "f_service_other": {
+    "en": "Something else",
+    "ar": "شيء آخر"
+  },
+  "f_msg": {
+    "en": "Project details",
+    "ar": "تفاصيل المشروع"
+  },
+  "f_msg_ph": {
+    "en": "Tell us about your project",
+    "ar": "أخبرنا عن مشروعك"
+  },
+  "f_send": {
+    "en": "Send request",
+    "ar": "أرسل الطلب"
+  },
+  "f_sending": {
+    "en": "Sending…",
+    "ar": "جارٍ الإرسال…"
+  },
+  "f_thanks": {
+    "en": "Request received!",
+    "ar": "تم استلام طلبك!"
+  },
+  "f_thanks_sub": {
+    "en": "We’ll be in touch within one business day.",
+    "ar": "سنتواصل معك خلال يوم عمل واحد."
+  },
+  "f_need_contact": {
+    "en": "Please add your email or WhatsApp number so we can reply.",
+    "ar": "اكتب بريدك الإلكتروني أو رقم واتساب لنتمكن من الرد عليك."
+  },
+  "f_bad_email": {
+    "en": "That email address doesn’t look right.",
+    "ar": "البريد الإلكتروني غير صحيح."
+  },
+  "f_failed": {
+    "en": "It didn’t send. Please try again, or message us on WhatsApp: +20 127 766 0666.",
+    "ar": "لم يتم الإرسال. حاول مرة أخرى أو راسلنا على واتساب +20 127 766 0666."
+  },
+  "f_nojs": {
+    "en": "This form needs JavaScript. You can also email info@wheretospot.com or message us on WhatsApp.",
+    "ar": "يحتاج هذا النموذج إلى جافاسكربت. يمكنك أيضاً مراسلتنا على info@wheretospot.com أو عبر واتساب."
+  },
+  "footer_rights": {
+    "en": "© 2026 Where To Spot. All rights reserved.",
+    "ar": "© 2026 وير تو سبوت. جميع الحقوق محفوظة."
+  },
+  "footer_services": {
+    "en": "Services",
+    "ar": "الخدمات"
+  },
+  "footer_work": {
+    "en": "Work by category",
+    "ar": "الأعمال حسب الفئة"
+  },
+  "footer_contact": {
+    "en": "Contact",
+    "ar": "تواصل"
+  },
+  "footer_follow": {
+    "en": "Follow",
+    "ar": "تابعنا"
+  },
+  "chat_title": {
+    "en": "Where To Spot assistant",
+    "ar": "مساعد Where To Spot"
+  },
+  "chat_open": {
+    "en": "Ask the Where To Spot assistant",
+    "ar": "اسأل مساعد Where To Spot"
+  },
+  "chat_close": {
+    "en": "Close chat",
+    "ar": "إغلاق المحادثة"
+  },
+  "chat_greet": {
+    "en": "Hi! I'm the Where To Spot assistant 👋 How can I help? We do printing, acrylic, events, video, social, web & AI. Tell me about your project and I'll help you get a quote.",
+    "ar": "مرحباً! أنا مساعد Where To Spot 👋 كيف أقدر أساعدك؟ نقدّم الطباعة، الأكريليك، الفعاليات، الفيديو، السوشيال ميديا، الويب، وحلول الذكاء الاصطناعي. أخبرني بمشروعك وسأساعدك في الحصول على عرض سعر."
+  },
+  "chat_ph": {
+    "en": "Type your message…",
+    "ar": "اكتب رسالتك…"
+  },
+  "chat_send": {
+    "en": "Send",
+    "ar": "إرسال"
+  },
+  "chat_err": {
+    "en": "Sorry, something went wrong. Message us on WhatsApp: https://wa.me/201277660666",
+    "ar": "عذراً، حدث خطأ. راسلنا على واتساب: https://wa.me/201277660666"
+  },
+  "whatsapp_cta": {
+    "en": "Chat on WhatsApp",
+    "ar": "تواصل عبر واتساب"
+  },
+  "whatsapp_text": {
+    "en": "Hi Where To Spot, I'd like to ask about your services",
+    "ar": "مرحباً Where To Spot، أرغب بالاستفسار عن خدماتكم"
+  },
+  "see_all_services": {
+    "en": "All services",
+    "ar": "كل الخدمات"
+  },
+  "see_all_work": {
+    "en": "See all work",
+    "ar": "شاهد كل الأعمال"
+  },
+  "see_category_work": {
+    "en": "See all {cat} work",
+    "ar": "شاهد كل أعمال {cat}"
+  },
+  "view_project": {
+    "en": "View project",
+    "ar": "عرض المشروع"
+  },
+  "related": {
+    "en": "More {cat} work",
+    "ar": "أعمال أخرى في {cat}"
+  },
+  "client": {
+    "en": "Client",
+    "ar": "العميل"
+  },
+  "category": {
+    "en": "Category",
+    "ar": "الفئة"
+  },
+  "service": {
+    "en": "Service",
+    "ar": "الخدمة"
+  },
+  "included": {
+    "en": "What’s included",
+    "ar": "ما يشمله"
+  },
+  "photos": {
+    "en": "{n} photos",
+    "ar": "{n} صور"
+  },
+  "video": {
+    "en": "Video",
+    "ar": "فيديو"
+  },
+  "watch": {
+    "en": "Watch the video",
+    "ar": "شاهد الفيديو"
+  },
+  "cta_title": {
+    "en": "Have a project in mind?",
+    "ar": "لديك مشروع في ذهنك؟"
+  },
+  "cta_sub": {
+    "en": "Tell us what you need and we’ll get back within one business day with ideas and a quote.",
+    "ar": "أخبرنا بما تحتاجه وسنعود إليك خلال يوم عمل واحد بالأفكار وعرض السعر."
+  },
+  "cta_btn": {
+    "en": "Get a Quote",
+    "ar": "اطلب عرض سعر"
+  },
+  "cta_service_btn": {
+    "en": "Get a quote for {cat}",
+    "ar": "اطلب عرض سعر لـ {cat}"
+  },
+  "work_index_title": {
+    "en": "Our work",
+    "ar": "أعمالنا"
+  },
+  "work_index_sub": {
+    "en": "Every project, by category. Pick a category or open a project for the full gallery.",
+    "ar": "كل مشاريعنا حسب الفئة. اختر فئة أو افتح مشروعاً لعرض المعرض كاملاً."
+  },
+  "projects_count": {
+    "en": "{n} projects",
+    "ar": "{n} مشروع"
+  },
+  "services_index_sub": {
+    "en": "From a single banner to a full AI-powered campaign — one team, end to end.",
+    "ar": "من لافتة واحدة إلى حملة كاملة بالذكاء الاصطناعي — فريق واحد من البداية للنهاية."
+  },
+  "stats_title": {
+    "en": "In numbers",
+    "ar": "بالأرقام"
+  },
+  "about_page_title": {
+    "en": "About Where To Spot",
+    "ar": "عن Where To Spot"
+  },
+  "notfound_title": {
+    "en": "This page doesn’t exist.",
+    "ar": "هذه الصفحة غير موجودة."
+  },
+  "notfound_sub": {
+    "en": "The link may be old or mistyped. Try our work or get in touch.",
+    "ar": "ربما الرابط قديم أو به خطأ. تصفح أعمالنا أو تواصل معنا."
+  },
+  "gallery_prev": {
+    "en": "Previous photo",
+    "ar": "الصورة السابقة"
+  },
+  "gallery_next": {
+    "en": "Next photo",
+    "ar": "الصورة التالية"
+  },
+  "gallery_open": {
+    "en": "Open photo {n} of {total}",
+    "ar": "افتح الصورة {n} من {total}"
+  },
+  "breadcrumb": {
+    "en": "Breadcrumb",
+    "ar": "مسار التنقل"
+  },
+  "categories_nav": {
+    "en": "Work categories",
+    "ar": "فئات الأعمال"
+  }
+}

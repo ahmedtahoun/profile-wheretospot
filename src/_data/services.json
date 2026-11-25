@@ -1,0 +1,196 @@
+[
+  {
+    "slug": "digital-printing",
+    "tags_en": [
+      "Large format",
+      "Signage",
+      "Banners"
+    ],
+    "tags_ar": [
+      "طباعة كبيرة",
+      "لافتات",
+      "بانرات"
+    ],
+    "summary_en": "Sharp, fast, on-brand print at any scale.",
+    "summary_ar": "طباعة دقيقة وسريعة بأي حجم.",
+    "description_todo": true
+  },
+  {
+    "slug": "acrylic",
+    "tags_en": [
+      "Displays",
+      "Lettering",
+      "Fabrication"
+    ],
+    "tags_ar": [
+      "واجهات",
+      "حروف",
+      "تصنيع"
+    ],
+    "summary_en": "Custom acrylic that turns heads.",
+    "summary_ar": "أكريليك مصمم يلفت الأنظار.",
+    "description_todo": true
+  },
+  {
+    "slug": "branding",
+    "tags_en": [
+      "Logo",
+      "Guidelines",
+      "Collateral"
+    ],
+    "tags_ar": [
+      "شعار",
+      "دليل",
+      "مطبوعات"
+    ],
+    "summary_en": "Identities that feel unmistakably you.",
+    "summary_ar": "هويات تعبّر عنك بوضوح.",
+    "description_todo": true
+  },
+  {
+    "slug": "nfc-smart-cards",
+    "tags_en": [
+      "Tap cards",
+      "Reviews",
+      "Digital profiles"
+    ],
+    "tags_ar": [
+      "بطاقات لمس",
+      "تقييمات",
+      "ملفات رقمية"
+    ],
+    "summary_en": "One-tap cards for contacts, reviews & links.",
+    "summary_ar": "بطاقات بلمسة للتواصل والتقييمات والروابط.",
+    "description_todo": true
+  },
+  {
+    "slug": "events",
+    "tags_en": [
+      "Booths",
+      "Activations",
+      "Production"
+    ],
+    "tags_ar": [
+      "أجنحة",
+      "تفعيلات",
+      "إنتاج"
+    ],
+    "summary_en": "Full event production, concept to teardown.",
+    "summary_ar": "إنتاج فعاليات متكامل.",
+    "description_todo": true
+  },
+  {
+    "slug": "video-production",
+    "tags_en": [
+      "Films",
+      "Ads",
+      "Reels",
+      "Motion"
+    ],
+    "tags_ar": [
+      "أفلام",
+      "إعلانات",
+      "ريلز",
+      "موشن"
+    ],
+    "summary_en": "Brand films & reels that stop the scroll.",
+    "summary_ar": "أفلام وريلز توقف التمرير.",
+    "description_todo": true
+  },
+  {
+    "slug": "social-media",
+    "tags_en": [
+      "Strategy",
+      "Content",
+      "Community"
+    ],
+    "tags_ar": [
+      "استراتيجية",
+      "محتوى",
+      "مجتمع"
+    ],
+    "summary_en": "Content & management that grows audiences.",
+    "summary_ar": "محتوى وإدارة تنمّي جمهورك.",
+    "description_todo": true
+  },
+  {
+    "slug": "web-development",
+    "tags_en": [
+      "Websites",
+      "Stores",
+      "Apps"
+    ],
+    "tags_ar": [
+      "مواقع",
+      "متاجر",
+      "تطبيقات"
+    ],
+    "summary_en": "Fast, beautiful sites built to convert.",
+    "summary_ar": "مواقع سريعة مصممة للتحويل.",
+    "description_todo": true
+  },
+  {
+    "slug": "ai-solutions",
+    "tags_en": [
+      "Chatbots",
+      "Tools",
+      "Integrations"
+    ],
+    "tags_ar": [
+      "شات بوت",
+      "أدوات",
+      "دمج"
+    ],
+    "summary_en": "Custom AI built for your business.",
+    "summary_ar": "ذكاء اصطناعي مصمم لأعمالك.",
+    "description_todo": true
+  },
+  {
+    "slug": "ai-automation",
+    "tags_en": [
+      "Workflows",
+      "CRM",
+      "Lead capture"
+    ],
+    "tags_ar": [
+      "عمليات",
+      "CRM",
+      "جذب عملاء"
+    ],
+    "summary_en": "Automate the busywork, ship faster.",
+    "summary_ar": "أتمتة المهام لإنجاز أسرع.",
+    "description_todo": true
+  },
+  {
+    "slug": "seo",
+    "tags_en": [
+      "Technical",
+      "Content",
+      "Local"
+    ],
+    "tags_ar": [
+      "تقني",
+      "محتوى",
+      "محلي"
+    ],
+    "summary_en": "Rank higher across GCC search.",
+    "summary_ar": "تصدّر نتائج البحث في الخليج.",
+    "description_todo": true
+  },
+  {
+    "slug": "ugc",
+    "tags_en": [
+      "Creators",
+      "Reviews",
+      "Authentic"
+    ],
+    "tags_ar": [
+      "صنّاع",
+      "مراجعات",
+      "أصيل"
+    ],
+    "summary_en": "Authentic creator content that sells.",
+    "summary_ar": "محتوى صنّاع أصيل يبيع.",
+    "description_todo": true
+  }
+]

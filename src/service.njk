@@ -1,0 +1,57 @@
+---
+pagination:
+  data: pages.services
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/services/{{ item.cat.slug }}/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set c = item.cat -%}
+{%- set s = item.service -%}
+{%- set cname = c | f("name", lang) -%}
+{%- set path = "/services/" + c.slug + "/" -%}
+{%- set navSection = "services" -%}
+{%- set pageTitle = cname -%}
+{%- set pageDesc = (s | f("summary", lang)) + " " + ((s.tags_ar if lang == 'ar' else s.tags_en) | join(", ")) + "." -%}
+{%- set ogImage = item.projects[0].images[0].src if item.projects.length else "" -%}
+{%- set crumbs = [{label: ("nav_services" | t(lang)), href: ("/services/" | lp(lang))}, {label: cname}] -%}
+{% block jsonld %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":{{ cname | dump | safe }},"description":{{ (s | f("summary", lang)) | dump | safe }},"provider":{"@type":"Organization","name":{{ site.name | dump | safe }},"url":{{ (site.url + "/") | dump | safe }}}}</script>
+{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    {% include "partials/crumbs.njk" %}
+    <h1 class="h1">{{ cname }}</h1>
+    <p class="lead readable">{{ s | f("summary", lang) }}</p>
+  </div>
+</section>
+<section class="section section-tight" aria-labelledby="h-included">
+  <div class="container">
+    <h2 class="h3" id="h-included">{{ "included" | t(lang) }}</h2>
+    <ul class="included">
+      {%- for tag in (s.tags_ar if lang == 'ar' else s.tags_en) %}<li>{{ tag }}</li>{% endfor %}
+    </ul>
+    <p class="head-links">
+      <a class="btn btn-primary" href="{{ '/contact/' | lp(lang) }}?service={{ c.slug }}">{{ "cta_service_btn" | t(lang, {cat: cname}) }}</a>
+    </p>
+  </div>
+</section>
+{%- if item.projects.length %}
+<section class="section" aria-labelledby="h-svc-work">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="h3" id="h-svc-work">{{ "work_kicker" | t(lang) }}</h2>
+      <a class="link-arrow" href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ "see_category_work" | t(lang, {cat: cname}) }} ({{ item.total }})</a>
+    </div>
+    <div class="pgrid">
+      {%- asyncEach p in item.projects %}{% include "partials/project-card.njk" %}{% endeach %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+{%- set ctaHref = ('/contact/' | lp(lang)) + "?service=" + c.slug -%}
+{%- set ctaLabel = "cta_service_btn" | t(lang, {cat: cname}) -%}
+{% include "partials/cta.njk" %}
+{% endblock %}

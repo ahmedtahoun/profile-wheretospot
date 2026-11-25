@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ahmed Al Mansouri",
+    "name_ar": "أحمد المنصوري",
+    "initial": "A",
+    "role_en": "Marketing Director",
+    "role_ar": "مدير تسويق",
+    "quote_en": "They turned our idea into reality — better quality than we imagined and incredibly fast.",
+    "quote_ar": "حوّلوا فكرتنا إلى واقع بجودة تفوق التوقعات وسرعة مذهلة.",
+    "verified": false
+  },
+  {
+    "name": "Sara Al Hajri",
+    "name_ar": "سارة الهاجري",
+    "initial": "S",
+    "role_en": "Founder",
+    "role_ar": "مؤسِّسة",
+    "quote_en": "One team for everything saved us serious time and money. Total peace of mind.",
+    "quote_ar": "فريق واحد لكل شيء — وفّر علينا وقتاً ومالاً كبيرين.",
+    "verified": false
+  },
+  {
+    "name": "Khalid Al Otaibi",
+    "name_ar": "خالد العتيبي",
+    "initial": "K",
+    "role_en": "CEO",
+    "role_ar": "رئيس تنفيذي",
+    "quote_en": "Attention to detail you rarely find in this market. We keep coming back.",
+    "quote_ar": "اهتمام بالتفاصيل نادر في السوق. نعمل معهم دائماً.",
+    "verified": false
+  }
+]

@@ -1,5 +1,6 @@
 # profile.wheretospot.com
 Options -Indexes
+ErrorDocument 404 /404.html
 <FilesMatch "\.(md|yml|yaml|lock|json)$|^config\.local(\.example)?\.php$|^_common\.php$">
   Require all denied
 </FilesMatch>
@@ -11,7 +12,7 @@ Options -Indexes
 </IfModule>
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
-  <FilesMatch "\.(webp|jpe?g|png|svg|mp4)$">
+  <FilesMatch "\.(webp|jpe?g|png|svg|mp4|css|js)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 </IfModule>

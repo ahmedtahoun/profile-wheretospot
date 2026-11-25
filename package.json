@@ -1,0 +1,17 @@
+{
+  "name": "profile-wheretospot",
+  "private": true,
+  "description": "profile.wheretospot.com: Where To Spot creative studio site (EN/AR), built with Eleventy",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --port=8071"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@11ty/eleventy-img": "^6.0.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,39 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="{{ '/' | lp(lang) }}"><img src="/images/logo.png" alt="{{ site.name }}" width="186" height="108" loading="lazy"></a>
+      <p class="muted">{{ "about_p1" | t(lang) }}</p>
+    </div>
+    <div>
+      <h2 class="footer-h">{{ "footer_work" | t(lang) }}</h2>
+      <ul class="footer-list">
+        <li><a href="{{ '/work/' | lp(lang) }}">{{ "all_work" | t(lang) }}</a></li>
+        {%- for c in categories %}<li><a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ c | f("name", lang) }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-h">{{ site.name }}</h2>
+      <ul class="footer-list">
+        <li><a href="{{ '/' | lp(lang) }}">{{ "nav_home" | t(lang) }}</a></li>
+        <li><a href="{{ '/services/' | lp(lang) }}">{{ "nav_services" | t(lang) }}</a></li>
+        <li><a href="{{ '/work/' | lp(lang) }}">{{ "nav_work" | t(lang) }}</a></li>
+        <li><a href="{{ '/about/' | lp(lang) }}">{{ "nav_about" | t(lang) }}</a></li>
+        <li><a href="{{ '/contact/' | lp(lang) }}">{{ "nav_contact" | t(lang) }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-h">{{ "footer_contact" | t(lang) }}</h2>
+      <ul class="footer-list">
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="tel:{{ site.phone_e164 }}" dir="ltr">{{ site.phone }}</a></li>
+        <li><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="{{ site.main_site }}">www.wheretospot.com</a></li>
+      </ul>
+      <h2 class="footer-h footer-h2">{{ "footer_follow" | t(lang) }}</h2>
+      <ul class="footer-social">
+        {%- for s in site.socials %}<li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom muted">{{ "footer_rights" | t(lang) }}</div>
+</footer>

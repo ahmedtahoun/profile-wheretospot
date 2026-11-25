@@ -1,0 +1,9 @@
+{#- Row of real links to every category. Needs: lang, categories, current (slug or "all"). -#}
+<nav class="cat-nav" aria-label="{{ 'categories_nav' | t(lang) }}">
+  <ul>
+    <li><a href="{{ '/work/' | lp(lang) }}"{% if current == 'all' %} aria-current="page"{% endif %}>{{ "all_work" | t(lang) }}</a></li>
+    {%- for c in categories %}
+    <li><a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}"{% if current == c.slug %} aria-current="page"{% endif %}>{{ c | f("name", lang) }}</a></li>
+    {%- endfor %}
+  </ul>
+</nav>

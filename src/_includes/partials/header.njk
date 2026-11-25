@@ -1,0 +1,45 @@
+{%- set navItem = navSection or "" -%}
+<header class="site-header">
+  <div class="container header-in">
+    <a class="logo" href="{{ '/' | lp(lang) }}" aria-label="{{ site.name }} · {{ 'nav_home' | t(lang) }}">
+      <img src="/images/logo.png" alt="{{ site.name }}" width="186" height="108">
+    </a>
+    <nav class="main-nav" aria-label="{{ 'menu' | t(lang) }}">
+      <ul class="nav-list">
+        <li class="has-dd">
+          <a href="{{ '/work/' | lp(lang) }}"{% if navItem == 'work' %} aria-current="page"{% endif %}>{{ "nav_work" | t(lang) }}</a>
+          <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-work" aria-label="{{ 'categories_nav' | t(lang) }}"><span aria-hidden="true">▾</span></button>
+          <ul class="dd" id="dd-work">
+            <li><a href="{{ '/work/' | lp(lang) }}">{{ "all_work" | t(lang) }}</a></li>
+            {%- for c in categories %}
+            <li><a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ c | f("name", lang) }}</a></li>
+            {%- endfor %}
+          </ul>
+        </li>
+        <li><a href="{{ '/services/' | lp(lang) }}"{% if navItem == 'services' %} aria-current="page"{% endif %}>{{ "nav_services" | t(lang) }}</a></li>
+        <li><a href="{{ '/about/' | lp(lang) }}"{% if navItem == 'about' %} aria-current="page"{% endif %}>{{ "nav_about" | t(lang) }}</a></li>
+        <li><a href="{{ '/contact/' | lp(lang) }}"{% if navItem == 'contact' %} aria-current="page"{% endif %}>{{ "nav_contact" | t(lang) }}</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="lang-switch" href="{{ path | lp('en' if lang == 'ar' else 'ar') }}" hreflang="{{ 'en' if lang == 'ar' else 'ar' }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}" aria-label="{{ 'switch_label' | t(lang) }}">{{ "switch_to" | t(lang) }}</a>
+      <a class="btn btn-primary btn-sm quote-btn" href="{{ '/contact/' | lp(lang) }}">{{ "nav_quote" | t(lang) }}</a>
+      {#- Phone menu: a <details> element opens without JavaScript. -#}
+      <details class="mnav">
+        <summary aria-label="{{ 'menu' | t(lang) }}"><span class="burger" aria-hidden="true"></span></summary>
+        <div class="mnav-panel">
+          <div class="container">
+            <a href="{{ '/work/' | lp(lang) }}">{{ "nav_work" | t(lang) }}</a>
+            <div class="mnav-cats">
+              {%- for c in categories %}<a href="{{ ('/work/' + c.slug + '/') | lp(lang) }}">{{ c | f("name", lang) }}</a>{% endfor %}
+            </div>
+            <a href="{{ '/services/' | lp(lang) }}">{{ "nav_services" | t(lang) }}</a>
+            <a href="{{ '/about/' | lp(lang) }}">{{ "nav_about" | t(lang) }}</a>
+            <a href="{{ '/contact/' | lp(lang) }}">{{ "nav_contact" | t(lang) }}</a>
+            <a class="btn btn-primary" href="{{ '/contact/' | lp(lang) }}">{{ "nav_quote" | t(lang) }}</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

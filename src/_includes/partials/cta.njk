@@ -1,0 +1,10 @@
+{#- Needs: lang. Optional: ctaHref, ctaLabel. -#}
+<section class="cta-band">
+  <div class="container cta-in">
+    <div>
+      <h2 class="h2">{{ "cta_title" | t(lang) }}</h2>
+      <p class="muted readable">{{ "cta_sub" | t(lang) }}</p>
+    </div>
+    <a class="btn btn-primary" href="{{ ctaHref or ('/contact/' | lp(lang)) }}">{{ ctaLabel or ("cta_btn" | t(lang)) }}</a>
+  </div>
+</section>

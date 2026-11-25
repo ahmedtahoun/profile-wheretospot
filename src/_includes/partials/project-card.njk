@@ -1,0 +1,18 @@
+{#- Needs: p (project), lang, categories. -#}
+{%- set pc = categories | findBySlug(p.category) -%}
+{%- set purl = ('/work/' + p.category + '/' + p.slug + '/') | lp(lang) -%}
+<article class="pcard">
+  <a class="pcard-link" href="{{ purl }}">
+    <span class="pcard-media">
+      {% img p.images[0].src, (p.images[0] | f("alt", lang)), "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 400px", "pcard-img" %}
+      {%- if p.video_url %}<span class="pcard-badge"><span aria-hidden="true">▶</span> {{ "video" | t(lang) }}</span>
+      {%- elif p.images.length > 1 %}<span class="pcard-badge"><span aria-hidden="true">▦</span> {{ "photos" | t(lang, {n: p.images.length}) }}</span>{% endif %}
+    </span>
+    <span class="pcard-body">
+      <span class="pcard-cat">{{ pc | f("name", lang) }}</span>
+      <span class="pcard-title">{{ p | f("title", lang) }}</span>
+      {%- set cl = (p.client_ar if (lang == 'ar' and p.client_ar) else p.client) %}
+      {%- if cl %}<span class="pcard-client">{{ cl }}</span>{% endif %}
+    </span>
+  </a>
+</article>

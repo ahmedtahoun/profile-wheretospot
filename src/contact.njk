@@ -1,0 +1,63 @@
+---
+pagination:
+  data: pages.langs
+  size: 1
+  alias: item
+permalink: "{{ '/ar' if item.lang == 'ar' }}/contact/"
+---
+{%- extends "base.njk" -%}
+{%- set lang = item.lang -%}
+{%- set path = "/contact/" -%}
+{%- set navSection = "contact" -%}
+{%- set pageTitle = "nav_contact" | t(lang) -%}
+{%- set pageDesc = "contact_sub" | t(lang) -%}
+{%- set pageScript = "contact.js" -%}
+{% block content %}
+<section class="page-head">
+  <div class="container">
+    <p class="kicker">{{ "contact_kicker" | t(lang) }}</p>
+    <h1 class="h1">{{ "contact_title" | t(lang) }}</h1>
+    <p class="lead readable">{{ "contact_sub" | t(lang) }}</p>
+  </div>
+</section>
+<section class="section section-tight">
+  <div class="container contact-grid">
+    <div class="contact-details">
+      <ul class="contact-list">
+        <li><span aria-hidden="true">✉</span><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><span aria-hidden="true">✆</span><a href="tel:{{ site.phone_e164 }}" dir="ltr">{{ site.phone }}</a></li>
+        <li><span aria-hidden="true">◔</span><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><span aria-hidden="true">◈</span><a href="{{ site.main_site }}">www.wheretospot.com</a></li>
+        <li><span aria-hidden="true">⚲</span><span class="muted">{{ "contact_region" | t(lang) }}</span></li>
+      </ul>
+    </div>
+    <div class="form-card">
+      {#- Works without JavaScript too: the server saves the lead and comes back to #sent. -#}
+      <form id="contact-form" class="form" method="post" action="/api/lead.php" novalidate>
+        <input type="hidden" name="lang" value="{{ lang }}">
+        <input type="hidden" name="back" value="{{ '/contact/' | lp(lang) }}">
+        <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="row2">
+          <label>{{ "f_name" | t(lang) }}<input name="name" autocomplete="name" placeholder="{{ 'f_name_ph' | t(lang) }}" maxlength="80"></label>
+          <label>{{ "f_email" | t(lang) }}<input name="email" type="email" autocomplete="email" placeholder="{{ 'f_email_ph' | t(lang) }}" maxlength="120" dir="ltr"></label>
+        </div>
+        <label>{{ "f_phone" | t(lang) }}<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="{{ 'f_phone_ph' | t(lang) }}" maxlength="40" dir="ltr"></label>
+        <label>{{ "f_service" | t(lang) }}
+          <select name="service" id="f-service">
+            {%- for c in categories %}<option value="{{ c.slug }}">{{ c | f("name", lang) }}</option>{% endfor %}
+            <option value="other">{{ "f_service_other" | t(lang) }}</option>
+          </select>
+        </label>
+        <label>{{ "f_msg" | t(lang) }}<textarea name="message" rows="5" maxlength="3000" placeholder="{{ 'f_msg_ph' | t(lang) }}"></textarea></label>
+        <p class="form-error" role="alert" hidden></p>
+        <button class="btn btn-primary btn-lg" type="submit">{{ "f_send" | t(lang) }}</button>
+      </form>
+      <div class="form-done" id="sent" hidden>
+        <span class="done-tick" aria-hidden="true">✓</span>
+        <h2 class="h3">{{ "f_thanks" | t(lang) }}</h2>
+        <p class="muted">{{ "f_thanks_sub" | t(lang) }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

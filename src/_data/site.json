@@ -1,0 +1,29 @@
+{
+  "name": "Where To Spot",
+  "url": "https://profile.wheretospot.com",
+  "email": "info@wheretospot.com",
+  "phone": "+20 127 766 0666",
+  "phone_e164": "+201277660666",
+  "whatsapp": "201277660666",
+  "main_site": "https://www.wheretospot.com",
+  "showreel_id": "zar2CaENo_U",
+  "socials": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/wheretospot/"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/@wheretospot"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/company/wheretospot/"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/wheretospot"
+    }
+  ],
+  "og_default": "images/work/huawei-booth-1.webp"
+}
