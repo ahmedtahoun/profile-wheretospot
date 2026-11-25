@@ -12,9 +12,7 @@ export default function (eleventyConfig) {
   // Files copied as they are.
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "php/api": "api" });
-  eleventyConfig.addPassthroughCopy({ "php/leads.php": "leads.php" });
-  eleventyConfig.addPassthroughCopy({ "php/.htaccess": ".htaccess" });
+  // Server URLs (/api/*, /leads.php) are answered by the Cloudflare Worker in worker/index.js.
 
   // Interface text: {{ "nav_work" | t(lang) }}, with {placeholders}: {{ "photos" | t(lang, {n: 3}) }}
   eleventyConfig.addFilter("t", (key, lang, vars) => {

@@ -15,7 +15,9 @@ Bilingual (English / Arabic) portfolio site for Where To Spot. Built with [Eleve
 | `src/*.njk`, `src/_includes/` | Page templates and shared parts |
 | `src/assets/` | `site.css`, `site.js`, `contact.js` |
 | `src/images/` | Original photos (resized to WebP at build time) |
-| `php/` | Server code copied into the build: `api/chat.php`, `api/lead.php`, `leads.php`, `.htaccess` |
+| `worker/index.js` | Cloudflare Worker: contact form (`/api/lead.php`), chat (`/api/chat.php`), leads inbox (`/leads.php`) |
+| `worker/schema.sql` | Tables for the `profile-leads` D1 database |
+| `wrangler.jsonc` | Cloudflare config |
 | `docs/URLS.md` | Every generated URL |
 | `docs/CLEANUP.md` | Content still to fix or confirm |
 
@@ -37,14 +39,19 @@ npm install
 npm run dev
 ```
 
-`npm run build` writes the site to `_site/`. To test the PHP form and chat locally, serve `_site/` with `php -S 127.0.0.1:8072 -t _site`.
+`npm run build` writes the site to `_site/`. To test the form, chat and leads inbox locally, run `npm run build` then `npx wrangler dev` (uses a local copy of the database).
 
 ## Deploy
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and force-pushes the result to the `deploy` branch. cPanel (Git Version Control) pulls the `deploy` branch and runs its `.cpanel.yml`, which copies the files into `/home/viorowzb/profile.wheretospot.com/`.
+Hosted on **Cloudflare** as the Worker `profile` (moved from cPanel on 2026-11-25).
+- **Push to `main` → Cloudflare Workers Builds** runs `npm run build`, then `npx wrangler deploy`. Other branches get a preview link.
+- Manual deploy from this Mac: `npm run build && npx wrangler deploy`.
+- Test link: https://profile.wheretospot.workers.dev
 
-One-time cPanel setup: set the repository's checked-out branch to `deploy`, then Update from Remote → Deploy HEAD Commit.
+## Server-only settings
 
-## Server-only config
+Secrets never go in git. Set them once in Cloudflare (dashboard → Workers → profile → Settings → Variables and Secrets, or `npx wrangler secret put NAME`):
+- `ADMIN_PASSWORD`: password for `/leads.php`
+- `ANTHROPIC_API_KEY`: optional; without it the chat gives a scripted reply and still saves the lead
 
-Secrets never go in git. On the server, create `profile.wheretospot.com/config.local.php` (site root) from `php/config.local.example.php` with the admin password hash (for `leads.php`) and, optionally, the Anthropic API key for the chat. Without a key the chat gives a scripted reply. Leads are saved outside the web root in `/home/viorowzb/profile-data/leads.jsonl`, never in public files.
+Leads are stored in the D1 database `profile-leads` (never in public files). Lead emails are not sent yet: they will use Cloudflare Email Routing once wheretospot.com's DNS is on Cloudflare. Until then, check `/leads.php`.

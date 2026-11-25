@@ -4,3 +4,4 @@ _site/
 config.local.php
 *.log
 .cache/
+.wrangler/
