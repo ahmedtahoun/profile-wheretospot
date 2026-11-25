@@ -10,6 +10,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "observability": { "enabled": true },
+  "routes": [{ "pattern": "profile.wheretospot.com", "custom_domain": true }],
   "assets": {
     "directory": "_site",
     "binding": "ASSETS",
