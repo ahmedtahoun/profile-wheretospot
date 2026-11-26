@@ -1,6 +1,6 @@
 // Cloudflare: profile.wheretospot.com as the "profile" Worker.
 // Build: `npm run build` (Eleventy → _site). Deploy: `npx wrangler deploy`.
-// Push to main → Cloudflare Workers Builds runs both.
+// Push to main → GitHub Actions (.github/workflows/deploy.yml) runs both.
 // The Worker (worker/index.js) answers only /api/* and /leads.php; everything else is a static file from _site.
 // Secrets (never in git): ADMIN_PASSWORD, ANTHROPIC_API_KEY — set with `npx wrangler secret put NAME`.
 {

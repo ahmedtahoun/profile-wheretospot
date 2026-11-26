@@ -44,7 +44,7 @@ npm run dev
 ## Deploy
 
 Hosted on **Cloudflare** as the Worker `profile` (moved from cPanel on 2026-11-25).
-- **Push to `main` → Cloudflare Workers Builds** runs `npm run build`, then `npx wrangler deploy`. Other branches get a preview link.
+- **Push to `main` → GitHub Actions** (`.github/workflows/deploy.yml`) runs `npm run build`, then `npx wrangler deploy`. Needs the repository secret `CLOUDFLARE_API_TOKEN`.
 - Manual deploy from this Mac: `npm run build && npx wrangler deploy`.
 - Test link: https://profile.wheretospot.workers.dev
 
